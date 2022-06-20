@@ -7,7 +7,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def levelOrder(self, root):
         queue = []
         if root:
             queue.insert(0, root)

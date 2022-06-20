@@ -12,19 +12,19 @@ a.right.left = TreeNode(6)
 a.right.left.right = TreeNode(7)
 a.right.left.right.right = TreeNode(8)
 class Solution:
-    def preorderTraversal(self, root):
-        self.stc = []
-        self.res = []
+    def postorderTraversal(self, root):
+        self.stc1 = []
+        self.stc2 = []
         if root:
-            self.stc.append(root)
-        while self.stc:
-            ele = self.stc.pop(-1)
-            self.res.append(ele.val)
-            if ele.right:
-                self.stc.append(ele.right)
+            self.stc1.append(root)
+        while self.stc1:
+            ele = self.stc1.pop(-1)
             if ele.left:
-                self.stc.append(ele.left)
-        return self.res
+                self.stc1.append(ele.left)
+            if ele.right:
+                self.stc1.append(ele.right)
+            self.stc2.append(ele.val)
+        return self.stc2[::-1]
 res =  Solution()
-ans = res.preorderTraversal(a)
+ans = res.postorderTraversal(a)
 print(ans)
